@@ -1,11 +1,11 @@
 ---
 
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import Body from '../components/Body.astro';
+import BaseHead from '@components/BaseHead.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '@consts';
+import Body from '@components/Body.astro';
 
 <html lang="en">
 	<head>
@@ -13,7 +13,7 @@ import Body from '../components/Body.astro';
 	</head>
     <Body>
         <Header />
-        <main class="prose prose-shark dark:prose-invert max-w-none flex-1 pt-40 ">
+        <main class="prose dark:prose-invert w-screen flex-1 pt-40">
             ## 🧑‍🚀 Hello, Astronaut!
             Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
             template serves as a lightweight, minimally-styled starting point for anyone looking to build

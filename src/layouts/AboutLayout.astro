@@ -1,9 +1,9 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import Body from '../components/Body.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import BaseHead from '@components/BaseHead.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import Body from '@components/Body.astro';
+import FormattedDate from '@components/FormattedDate.astro';
 
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
@@ -58,12 +58,12 @@ import { Image } from 'astro:assets';
 
 	<Body>
 		<Header />
-		<main class="flex-1 pt-40">
+		<main class="prose dark:prose-invert w-screen flex-1 pt-40">
 			<article>
 				<div class="hero-image">
 					{heroImage && <Image src={heroImage} alt="" />}
 				</div>
-				<div class="prose prose-zinc max-w-none prose-lg dark:prose-invert">
+				<div class="">
 					<div class="title">
 						<div class="date">
 							<FormattedDate date={pubDate} /> <br /> <br />

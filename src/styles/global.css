@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* lexend-300 - latin */
 @font-face {
 	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -24,10 +28,9 @@
 	font-weight: 700;
 	src: url('/fonts/lexend-v18-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
   }
-  
 
 body {
-	font-family: 'Lexend', sans-serif;
+	font-family: "Lexend", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	margin: 0;
 	padding: 0;
 	text-align: left;
@@ -43,7 +46,6 @@ main {
 	margin: auto;
 	padding: 3em 1em;
 }
-
 
 .sr-only {
 	border: 0;
