@@ -80,7 +80,7 @@ export default function DarkModeToggle() {
   });
 
   return (
-    <button onClick={toggleTheme} className="rounded p-2 bg-shark-100 hover:scale-110 ease-in-out duration-500 dark:bg-neutral-700 hover:shadow-accent">
+    <button onClick={toggleTheme} className="rounded p-2 bg-shark-100 hover:scale-110 ease-in-out duration-500 dark:bg-neutral-700 hover:shadow-accent" aria-label="Change between light and dark mode">
       <animated.div style={springProps}>
         {theme === "light" ? sunIcon : moonIcon}
       </animated.div>
