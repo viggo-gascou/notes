@@ -13,3 +13,8 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, '');
 	<slot />
 </a>
 
+<style>
+	a.active {
+		@apply underline decoration-4 decoration-[#2a4fe6];
+	}
+</style>
