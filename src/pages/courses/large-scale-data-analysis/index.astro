@@ -1,0 +1,11 @@
+---
+import { getCollection } from 'astro:content';
+import CollectionIndex from '@components/CollectionIndex.astro';
+
+const posts = (await getCollection('large-scale-data-analysis')).sort(
+	(b, a) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+
+---
+
+<CollectionIndex posts={posts} course="large-scale-data-analysis"/>

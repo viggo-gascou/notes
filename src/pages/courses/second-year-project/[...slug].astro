@@ -1,0 +1,24 @@
+---
+import { CollectionEntry, getCollection } from 'astro:content';
+import Note from '@layouts/Note.astro';
+import PreNote from '@components/PreNote.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('second-year-project');
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<'second-year-project'>;
+
+const post = Astro.props;
+const { Content, remarkPluginFrontmatter } = await post.render();
+const readingTime = remarkPluginFrontmatter.minutesRead;
+---
+
+<Note {...post.data}>
+	<PreNote {...post.data} readingTime={readingTime} />
+	
+	<Content />
+</Note>

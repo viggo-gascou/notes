@@ -1,0 +1,49 @@
+---
+import BaseHead from '@components/BaseHead.astro';
+import Body from '@components/Body.astro';
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
+import FormattedDate from '@components/FormattedDate.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '@consts';
+
+interface Props {
+	posts: any;
+	course: string
+}
+
+const { posts, course } = Astro.props;
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<Body>
+		<Header />
+		<main class="flex-1 pt-40 w-[960px]">
+			<section>
+				<ul class="flex flex-wrap gap-8 list-none m-0 p-0 ">
+
+				</ul>
+				<div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+					{posts.map((post: any) => (
+					  <a href={`/courses/${course}/${post.slug}/`} class="bg-white dark:bg-shark-800 overflow-hidden shadow rounded-lg">
+						<div class="px-4 py-6 flex flex-col h-full">
+						  <h3 class="text-lg leading-6 font-medium ">{post.data.title}</h3>
+							<div />
+						  <p class="mt-auto pt-4 max-w-2xl text-sm ">
+							<FormattedDate date={post.data.pubDate} />
+						  </p>
+						</div>
+					  </a>
+					))}
+				  </div>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</Body>
+</html>
