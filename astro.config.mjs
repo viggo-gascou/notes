@@ -7,6 +7,7 @@ import mdx from '@astrojs/mdx';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
 
+import { remarkReadingTime } from './src/utils/remark-reading-time.mjs';
 
 
 // https://astro.build/config
@@ -15,7 +16,8 @@ export default defineConfig({
     integrations: [sitemap(), tailwind(), react(), mdx()],
     markdown: {
         remarkPlugins: [
-            remarkMath
+            remarkMath,
+            remarkReadingTime,
         ],
         rehypePlugins: [
             [rehypeKatex, { 
