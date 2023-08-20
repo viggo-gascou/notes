@@ -7,9 +7,7 @@ import Body from '@components/Body.astro';
 import FormattedDate from '@components/FormattedDate.astro';
 
 
-const { title, tags, pubDate, updatedDate } = Astro.props;
-
-import { Image } from 'astro:assets';
+const { title, tags, pubDate, updatedDate, readingTime } = Astro.props;
 
 type Props = CollectionEntry<"second-year-project">["data"];
 
@@ -17,39 +15,40 @@ type Props = CollectionEntry<"second-year-project">["data"];
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={tags} />
-		<style>
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
-
+	<BaseHead title={title} description={tags} />
 	<Body>
 		<Header />
 		<main class="prose dark:prose-invert w-screen flex-1 pt-40">
 			<article>
-				<div>
-					<div class="pt-4 text-center leading-none">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
+				<div class="pt-4 text-center leading-none">
+					<div class="mb-2">
+						<FormattedDate date={pubDate} />
+						{
+							updatedDate && (
+								<div class="italic">
+									Last updated on <FormattedDate date={updatedDate} />
+								</div>
+							)
+						}
 					</div>
-					<slot />
+					<h1>{title}</h1>
+					<div class="w-full flex flex-col items-center mb-4">
+						<p class="text-center bg-tag shadow-accent text-gray-700 rounded text-sm mr-1 mb-1 px-1 py-1 transition-shadow ease-in-out duration-500">{readingTime}</p>
+						</div>
+						<hr class="w-48 h-1 mx-auto my-4 900 border-0 rounded md:my-10 bg-shark-500">
+				
+						{tags && tags.length > 0 ? (
+							<div class="flex flex-wrap mb-4">
+							{tags.map((tag: string) => (
+								<a href={`/tags/${tag}`} class="bg-tag text-gray-700 rounded text-sm mr-1 mb-1 px-1 py-1 transition-shadow ease-in-out duration-500 hover:shadow-accent">
+								<span class="tag">{tag}</span>
+								</a>
+							))}
+							</div>
+						) : null}
 				</div>
+				<slot />
+
 			</article>
 		</main>
 		<Footer />
