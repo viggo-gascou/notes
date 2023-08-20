@@ -1,0 +1,21 @@
+---
+export function getStaticPaths () {
+ return [
+    {params: {collection: 'second-year-project'}},
+    {params: {collection: 'large-scale-data-analysis'}},
+    {params: {collection: 'data-visualisation'}},
+  ]
+};
+
+
+const { collection }: any = Astro.params;
+import { getCollection } from 'astro:content';
+
+import CollectionIndex from '@components/CollectionIndex.astro';
+
+const posts = (await getCollection(collection)).sort(
+    (b: any, a: any) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+  );
+---
+
+<CollectionIndex posts={posts} course={collection}/>
