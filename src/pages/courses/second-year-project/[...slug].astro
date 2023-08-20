@@ -1,7 +1,6 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content';
 import Note from '@layouts/Note.astro';
-import PreNote from '@components/PreNote.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('second-year-project');
@@ -17,8 +16,6 @@ const { Content, remarkPluginFrontmatter } = await post.render();
 const readingTime = remarkPluginFrontmatter.minutesRead;
 ---
 
-<Note {...post.data}>
-	<PreNote {...post.data} readingTime={readingTime} />
-	
+<Note {...post.data} readingTime={readingTime}>
 	<Content />
 </Note>
