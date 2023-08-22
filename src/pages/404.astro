@@ -1,0 +1,41 @@
+---
+import BaseHead from '@components/BaseHead.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '@consts';
+import Body from '@components/Body.astro';
+import Main from '@components/Main.astro';
+---
+
+
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+    <Body>
+        <Header />
+        <Main>
+			<div class="text-center">
+				<h1 class="text-6xl">404</h1>
+					<p class="text-4xl">Page not found</p>
+				<div class="text-3xl">
+					<p>Not sure how you got here, because this page doesn't exist.</p>
+					<p>You can try going <a class="text-accent" href="/">back home</a></p>
+					<p>Or you can go back to the <a class="text-accent" id="back-link">previous page</a></p>
+				</div>
+			</div>
+        </Main>
+        <Footer />
+    </Body>
+</html>
+
+<script>
+	var backLink = document.getElementById('back-link');
+	backLink?.setAttribute('href', document.referrer);
+	backLink?.addEventListener('click', (e) => {
+		window.history.back();
+		return false;
+	});
+</script>
+
+
