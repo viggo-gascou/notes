@@ -32,7 +32,7 @@ import Main from '@components/Main.astro';
 <script>
 	var backLink = document.getElementById('back-link');
 	backLink?.setAttribute('href', document.referrer);
-	backLink?.addEventListener('click', (e) => {
+	backLink?.addEventListener('click', () => {
 		window.history.back();
 		return false;
 	});
