@@ -1,14 +1,14 @@
 ---
+import { Image } from 'astro:assets';
 import BaseHead from '@components/BaseHead.astro';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 import Body from '@components/Body.astro';
+import Main from '@components/Main.astro';
 import FormattedDate from '@components/FormattedDate.astro';
-
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
-import { Image } from 'astro:assets';
 
 ---
 
@@ -16,11 +16,6 @@ import { Image } from 'astro:assets';
 	<head>
 		<BaseHead title={title} description={description} />
 		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
 			.hero-image {
 				width: 100%;
 			}
@@ -58,30 +53,32 @@ import { Image } from 'astro:assets';
 
 	<Body>
 		<Header />
-		<main class="prose dark:prose-invert w-screen flex-1 pt-40">
+		<Main>
 			<article>
 				<div class="hero-image">
 					{heroImage && <Image src={heroImage} alt="" />}
 				</div>
-				<div class="">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} /> <br /> <br />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr class="w-48 h-1 mx-auto my-4 dark:bg-gray-100 border-0 rounded md:my-10 bg-gray-700" />
+				<div class="pt-4 text-center leading-none">
+					<div class="mb-2">
+						<FormattedDate date={pubDate} />
+						{
+							updatedDate && (
+								<div class="italic">
+									Last updated on <FormattedDate date={updatedDate} />
+								</div>
+							)
+						}
 					</div>
-					<slot />
+					<h1>{title}</h1>
+					<div class="w-full flex flex-col items-center mb-4">
+						</div>
+						<hr class="w-48 h-1 mx-auto my-4 900 border-0 rounded md:my-10 bg-shark-500">
+				
 				</div>
+				<slot />
+
 			</article>
-		</main>
+		</Main>
 		<Footer />
 	</Body>
 </html>

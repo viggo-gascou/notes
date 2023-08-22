@@ -4,6 +4,7 @@ import BaseHead from '@components/BaseHead.astro';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 import Body from '@components/Body.astro';
+import Main from '@components/Main.astro';
 import FormattedDate from '@components/FormattedDate.astro';
 
 
@@ -18,7 +19,7 @@ type Props = CollectionEntry<"second-year-project">["data"];
 	<BaseHead title={title} description={tags} />
 	<Body>
 		<Header />
-		<main class="prose dark:prose-invert w-screen flex-1 pt-40">
+		<Main>
 			<article>
 				<div class="pt-4 text-center leading-none">
 					<div class="mb-2">
@@ -35,7 +36,7 @@ type Props = CollectionEntry<"second-year-project">["data"];
 					<div class="w-full flex flex-col items-center mb-4">
 						<p class="text-center bg-tag shadow-accent text-gray-700 rounded text-sm mr-1 mb-1 px-1 py-1 transition-shadow ease-in-out duration-500">{readingTime}</p>
 						</div>
-						<hr class="w-48 h-1 mx-auto my-4 900 border-0 rounded md:my-10 bg-shark-500">
+						<hr class="w-48 h-1 mx-auto my-4 900 border-0 rounded md:my-10 bg-shark-500" />
 				
 						{tags && tags.length > 0 ? (
 							<div class="flex flex-wrap mb-4">
@@ -50,7 +51,7 @@ type Props = CollectionEntry<"second-year-project">["data"];
 				<slot />
 
 			</article>
-		</main>
+		</Main>
 		<Footer />
 	</Body>
 </html>

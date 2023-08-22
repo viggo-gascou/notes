@@ -7,23 +7,21 @@ import HeaderLink from '@components/HeaderLink.astro';
 ---
 
 
-<header class="fixed top-0 z-40 p-2 flex items-center justify-center w-screen h-40 border-b border-transparent select-none backdrop-blur-lg duration-500">
-	<nav class="w-screen">
-		<div class="container flex justify-around">
-			<div class="flex items-center">
-				<a href="/">
-					<h2 class="font-semibold text-lg hover:scale-105 ease-in-out duration-500">
-						<SeedlingIcon />
-						{SITE_TITLE}
-					</h2>
-				</a>
-			</div>
-			<div class="flex items-center">
-				<HeaderLink class="hover:scale-105 ease-in-out duration-500" href="/courses">Courses</HeaderLink>
-			</div>
-			<div class="flex items-center">
-				<DarkModeToggle client:visible/>
-			</div>
+<header class="fixed top-0 z-40 p-2 flex items-center w-screen h-40 border-b border-transparent select-none backdrop-blur-lg duration-500">
+	<nav class="flex fixed w-screen">
+		<div class="flex-1 flex justify-center mr-auto">
+			<a href="/">
+				<h2 class="font-semibold text-lg hover:scale-105 ease-in-out duration-500">
+					<SeedlingIcon />
+					{SITE_TITLE}
+				</h2>
+			</a>
+		</div>
+		<div class="mx-12 font-semibold hover:scale-105 ease-in-out duration-500 justify-center">
+			<HeaderLink href="/courses">Courses</HeaderLink>
+		</div>
+		<div class="flex-1 flex justify-center ml-auto">
+			<DarkModeToggle client:idle/>
 		</div>
 	</nav>
 </header>
