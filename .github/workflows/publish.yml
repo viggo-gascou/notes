@@ -18,7 +18,7 @@ jobs:
           
 
       - name: build
-        run: pnpm install && pnpm build
+        run: npm install && npm build
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
