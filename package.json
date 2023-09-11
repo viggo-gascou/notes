@@ -11,21 +11,21 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.19.7",
-    "@astrojs/react": "^2.3.2",
-    "@astrojs/rss": "^2.4.4",
-    "@astrojs/sitemap": "^2.0.2",
-    "@astrojs/tailwind": "^4.0.0",
-    "@fontsource/lexend": "^5.0.9",
+    "@astrojs/mdx": "^1.0.3",
+    "@astrojs/react": "^3.0.2",
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/tailwind": "^5.0.0",
+    "@fontsource/lexend": "^5.0.12",
     "@react-spring/web": "^9.7.3",
-    "@tailwindcss/typography": "^0.5.9",
-    "@types/react": "^18.2.20",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
-    "astro": "^2.10.12",
+    "astro": "^3.0.12",
     "mdast-util-to-string": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.10.1",
+    "react-icons": "^4.11.0",
     "reading-time": "^1.5.0",
     "rehype-katex": "^6.0.3",
     "remark-math": "^5.1.1",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "cz-emoji-conventional": "^1.0.2",
-    "wrangler": "^3.6.0"
+    "wrangler": "^3.7.0"
   },
   "config": {
     "commitizen": {
