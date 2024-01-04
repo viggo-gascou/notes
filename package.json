@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "cz-emoji-conventional": "^1.0.2",
-    "wrangler": "^3.7.0"
+    "wrangler": "^3.19.0"
   },
   "config": {
     "commitizen": {
